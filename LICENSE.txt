@@ -1,0 +1,41 @@
+Copyright Roy Or-El, 2020
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+The dataset is made available under Creative Commons BY-NC-SA 4.0 license
+by University of Washington. You can use, redistribute, and adapt it
+for non-commercial purposes, as long as you (a) give appropriate credit
+by citing our paper, (b) indicate any changes that you've made,
+and (c) distribute any derivative works under the same license.
+
+    Lifespan Age Transformation Synthesis
+    Roy Or-El, Soumyadip Sengupta, Ohad Fried, Eli Shechtman, Ira Kemelmacher-Shlizerman
+    https://arxiv.org/pdf/2003.09764.pdf
+
+The individual images were published in Flickr by their respective authors
+under either Creative Commons BY 2.0, Creative Commons BY-NC 2.0,
+Public Domain Mark 1.0, Public Domain CC0 1.0, or U.S. Government Works
+license. All of these licenses allow free use, redistribution, and adaptation
+for non-commercial purposes. However, some of them require giving appropriate
+credit to the original author, as well as indicating any changes that were
+made to the images. The license and original author of each image are
+indicated in the metadata.
+
+    https://creativecommons.org/licenses/by/2.0/
+    https://creativecommons.org/licenses/by-nc/2.0/
+    https://creativecommons.org/publicdomain/mark/1.0/
+    https://creativecommons.org/publicdomain/zero/1.0/
+    http://www.usa.gov/copyright.shtml
+
+The JSON metadata is made available under Creative Commons BY-NC-SA 4.0 license by NVIDIA Corporation.
+
+The individual images and JSON metadata are hosted on NVIDIA's Google Drive,
+please see the original FFHQ dataset for more details.
+
+    https://github.com/NVlabs/ffhq-dataset
