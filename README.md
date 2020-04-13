@@ -81,9 +81,9 @@ In addition, we recommend to disable the drive API and delete `client_secrets.js
 **download_ffhq_aging.py**<br>
 ```
   --debug              run in debug mode, download 50 random images (default: False)
-  --pydrive            use pydrive interface to download files. It can override google drive quota limitation<br>
+  --pydrive            use pydrive interface to download files. It can override google drive quota limitation
                        this requires google credentials (default: False)
-  --cmd_auth           use command line google authentication when using pydrive interface<br>
+  --cmd_auth           use command line google authentication when using pydrive interface
                        this is good when running on a server with no display (default: False)
   --resolution         final resolution of saved images (default: 256)
   --num_threads NUM    number of concurrent download threads (default: 32)
