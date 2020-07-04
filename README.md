@@ -15,6 +15,7 @@ This dataset is an extention of the NVIDIA [FFHQ dataset](https://github.com/NVl
 If you use this dataset for your work, please cite our paper:
 > **Lifespan Age Transformation Synthesis**<br>
 > Roy Or-El, Soumyadip Sengupta, Ohad Fried, Eli Shechtman, Ira Kemelmacher-Shlizerman<br>
+> ECCV 2020<br>
 > https://arxiv.org/pdf/2003.09764.pdf
 
 ## Dataset Statistics
