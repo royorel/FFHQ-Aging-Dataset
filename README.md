@@ -68,7 +68,7 @@ Nevertheless, we recommend revoking the script's access after the download is co
 * Click on enable drive API
 * Select Desktop app
 * Download client configuration
-* Rename this file to `client_secrets.json` and place in the same folder as the download script (`download_ffhq_aging.py`).
+* Rename this file to `client_secrets.json` and place it in the same folder as the download script (`download_ffhq_aging.py`).
 
 #### Step 3: Run the script
 * In order to run the code with authntication, edit the `get_ffhq_aging.sh/bat` script, and add the `--pydrive` flag when invoking `download_ffhq_aging.py`. This will open a browser authentication window. Log in to your account and allow access.
