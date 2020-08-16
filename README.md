@@ -125,7 +125,7 @@ Original face images were collected in the [NVIDIA FFHQ dataset](https://github.
 > Tero Karras, Samuli Laine, Timo Aila, CVPR 2019<br>
 > http://openaccess.thecvf.com/content_CVPR_2019/papers/Karras_A_Style-Based_Generator_Architecture_for_Generative_Adversarial_Networks_CVPR_2019_paper.pdf
 
-Age & gender labels and confidence scores were collected using the [Figure-Eight](https://www.figure-eight.com/) platform.
+Age & gender labels and confidence scores were collected using the [Appen](https://www.appen.com/) platform.
 
 Head pose, glasses type and eye occlusion score were extraceted using the [Face++](https://www.faceplusplus.com/) platform.
 
