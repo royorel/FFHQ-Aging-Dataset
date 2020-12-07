@@ -154,11 +154,11 @@ def download_files(file_specs, dst_dir='.', output_size=256, check_invalid_image
             if check_invalid_images:
                 try:
                     test_im = PIL.Image.open(spec['file_path'].replace('in-the-wild-images',dst_dir))
-                    done_specs = {spec['file_path']: spec}
+                    done_specs.update({spec['file_path']: spec})
                 except:
                     continue
             else:
-                done_specs = {spec['file_path']: spec}
+                done_specs.update({spec['file_path']: spec})
 
     missing_specs = [spec for spec in file_specs if spec['file_path'] not in done_specs]
     files_total = len(file_specs)
