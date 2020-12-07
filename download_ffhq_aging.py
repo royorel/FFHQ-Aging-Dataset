@@ -148,6 +148,7 @@ def format_time(seconds):
 def download_files(file_specs, dst_dir='.', output_size=256, check_invalid_images=False, drive=None, num_threads=32, status_delay=0.2, timing_window=50, **download_kwargs):
 
     # Determine which files to download.
+    done_specs = {}
     for spec in file_specs:
         if os.path.isfile(spec['file_path'].replace('in-the-wild-images',dst_dir)):
             if check_invalid_images:
