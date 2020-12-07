@@ -145,10 +145,19 @@ def format_time(seconds):
 
 #----------------------------------------------------------------------------
 
-def download_files(file_specs, dst_dir='.', output_size=256, drive=None, num_threads=32, status_delay=0.2, timing_window=50, **download_kwargs):
+def download_files(file_specs, dst_dir='.', output_size=256, check_invalid_images=False, drive=None, num_threads=32, status_delay=0.2, timing_window=50, **download_kwargs):
 
     # Determine which files to download.
-    done_specs = {spec['file_path']: spec for spec in file_specs if os.path.isfile(spec['file_path'].replace('in-the-wild-images',dst_dir))}
+    for spec in file_specs:
+        if os.path.isfile(spec['file_path'].replace('in-the-wild-images',dst_dir)):
+            if check_invalid_images:
+                try:
+                    test_im = PIL.Image.open(spec['file_path'].replace('in-the-wild-images',dst_dir))
+                    done_specs = {spec['file_path']: spec}
+                except:
+                    continue
+            else:
+                done_specs = {spec['file_path']: spec}
 
     missing_specs = [spec for spec in file_specs if spec['file_path'] not in done_specs]
     files_total = len(file_specs)
@@ -322,7 +331,7 @@ def align_in_the_wild_image(spec, dst_dir, output_size, transform_size=4096, ena
 
 #----------------------------------------------------------------------------
 
-def run(resolution, debug, pydrive, cmd_auth, **download_kwargs):
+def run(resolution, debug, pydrive, cmd_auth, check_invalid_images, **download_kwargs):
     if pydrive:
         drive = pydrive_utils.create_drive_manager(cmd_auth)
     else:
@@ -345,7 +354,7 @@ def run(resolution, debug, pydrive, cmd_auth, **download_kwargs):
         if debug:
             specs = specs[:50] # to create images in multiple directories
         print('Downloading %d files...' % len(specs))
-        download_files(specs, dst_dir, output_size, drive=drive, **download_kwargs)
+        download_files(specs, dst_dir, output_size, check_invalid_images, drive=drive, **download_kwargs)
 
     if os.path.isdir('in-the-wild-images'):
         shutil.rmtree('in-the-wild-images')
@@ -354,16 +363,17 @@ def run(resolution, debug, pydrive, cmd_auth, **download_kwargs):
 
 def run_cmdline(argv):
     parser = argparse.ArgumentParser(prog=argv[0], description='Download Flickr-Face-HQ-Aging (FFHQ-Aging) dataset to current working directory.')
-    parser.add_argument('--debug',              help='activate debug mode, download 50 random images (default: False)', action='store_true')
-    parser.add_argument('--pydrive',            help='use pydrive interface to download files. it overrides google drive quota limitation \
-                                                      this requires google credentials (default: False)', action='store_true')
-    parser.add_argument('--cmd_auth',           help='use command line google authentication when using pydrive interface (default: False)', action='store_true')
-    parser.add_argument('--resolution',         help='final resolution of saved images (default: 256)', type=int, default=256, metavar='PIXELS')
-    parser.add_argument('--num_threads',        help='number of concurrent download threads (default: 32)', type=int, default=32, metavar='NUM')
-    parser.add_argument('--status_delay',       help='time between download status prints (default: 0.2)', type=float, default=0.2, metavar='SEC')
-    parser.add_argument('--timing_window',      help='samples for estimating download eta (default: 50)', type=int, default=50, metavar='LEN')
-    parser.add_argument('--chunk_size',         help='chunk size for each download thread (default: 128)', type=int, default=128, metavar='KB')
-    parser.add_argument('--num_attempts',       help='number of download attempts per file (default: 10)', type=int, default=10, metavar='NUM')
+    parser.add_argument('--debug',                help='activate debug mode, download 50 random images (default: False)', action='store_true')
+    parser.add_argument('--pydrive',              help='use pydrive interface to download files. it overrides google drive quota limitation \
+                                                        this requires google credentials (default: False)', action='store_true')
+    parser.add_argument('--cmd_auth',             help='use command line google authentication when using pydrive interface (default: False)', action='store_true')
+    parser.add_argument('--check_invalid_images', help='checks for any invalid images and downloads them again', action='store_true')
+    parser.add_argument('--resolution',           help='final resolution of saved images (default: 256)', type=int, default=256, metavar='PIXELS')
+    parser.add_argument('--num_threads',          help='number of concurrent download threads (default: 32)', type=int, default=32, metavar='NUM')
+    parser.add_argument('--status_delay',         help='time between download status prints (default: 0.2)', type=float, default=0.2, metavar='SEC')
+    parser.add_argument('--timing_window',        help='samples for estimating download eta (default: 50)', type=int, default=50, metavar='LEN')
+    parser.add_argument('--chunk_size',           help='chunk size for each download thread (default: 128)', type=int, default=128, metavar='KB')
+    parser.add_argument('--num_attempts',         help='number of download attempts per file (default: 10)', type=int, default=10, metavar='NUM')
 
     args = parser.parse_args()
     run(**vars(args))
