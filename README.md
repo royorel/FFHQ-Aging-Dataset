@@ -1,4 +1,5 @@
 # FFHQ-Aging Dataset
+### [Project Page](https://grail.cs.washington.edu/projects/lifespan_age_transformation_synthesis/) | [Paper](https://arxiv.org/pdf/2003.09764.pdf) | [Lifespan Age Transformation Synthesis Code](https://github.com/royorel/Lifespan_Age_Transformation_Synthesis)
 <div align="center"><img src=./images/dataset_samples_github.png></div>
 
 ## Overview
@@ -15,6 +16,7 @@ This dataset is an extention of the NVIDIA [FFHQ dataset](https://github.com/NVl
 If you use this dataset for your work, please cite our paper:
 > **Lifespan Age Transformation Synthesis**<br>
 > Roy Or-El, Soumyadip Sengupta, Ohad Fried, Eli Shechtman, Ira Kemelmacher-Shlizerman<br>
+> ECCV 2020<br>
 > https://arxiv.org/pdf/2003.09764.pdf
 
 ## Dataset Statistics
@@ -67,11 +69,11 @@ Nevertheless, we recommend revoking the script's access after the download is co
 * Click on enable drive API
 * Select Desktop app
 * Download client configuration
-* Rename this file to `client_secrets.json` and place in the same folder as the download script (`download_ffhq_aging.py`).
+* Rename this file to `client_secrets.json` and place it in the same folder as the download script (`download_ffhq_aging.py`).
 
 #### Step 3: Run the script
-* In order to run the code with authntication, add the `--pydrive` flag to the `get_ffhq_aging.sh/bat` script when invoking `download_ffhq_aging.py`. This will open a browser authentication window. Log in to your account and allow access.
-* If you have no display (like when running from a remote compute server), also add the `--cmd_auth` flag to the `get_ffhq_aging.sh/bat` script when invoking `download_ffhq_aging.py`. This will print a Google authentication link to the screen. Open the link in any browser, allow access, and paste the Google authentication token back to the command line.  
+* In order to run the code with authntication, edit the `get_ffhq_aging.sh/bat` script, and add the `--pydrive` flag when invoking `download_ffhq_aging.py`. This will open a browser authentication window. Log in to your account and allow access.
+* If you have no display (like when running from a remote compute server), edit the `get_ffhq_aging.sh/bat` script, and also add the `--cmd_auth` flag when invoking `download_ffhq_aging.py`. This will print a Google authentication link to the screen. Open the link in any browser, allow access, and paste the Google authentication token back to the command line.  
 
 **Important Note**: using this will let the code access your Google Drive, which might pose a security risk.
 We recommend using it only in cases when the default interface consistently returns a quota exceeded error.
@@ -125,7 +127,7 @@ Original face images were collected in the [NVIDIA FFHQ dataset](https://github.
 > Tero Karras, Samuli Laine, Timo Aila, CVPR 2019<br>
 > http://openaccess.thecvf.com/content_CVPR_2019/papers/Karras_A_Style-Based_Generator_Architecture_for_Generative_Adversarial_Networks_CVPR_2019_paper.pdf
 
-Age & gender labels and confidence scores were collected using the [Figure-Eight](https://www.figure-eight.com/) platform.
+Age & gender labels and confidence scores were collected using the [Appen](https://www.appen.com/) platform.
 
 Head pose, glasses type and eye occlusion score were extraceted using the [Face++](https://www.faceplusplus.com/) platform.
 
