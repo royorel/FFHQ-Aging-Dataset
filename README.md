@@ -71,6 +71,8 @@ Nevertheless, we recommend revoking the script's access after the download is co
 * Download client configuration
 * Rename this file to `client_secrets.json` and place it in the same folder as the download script (`download_ffhq_aging.py`).
 
+**Update (4/29/2021): Google have updated this page, please follow the prerequisists section of the updated page to get the credential files**
+
 #### Step 3: Run the script
 * In order to run the code with authntication, edit the `get_ffhq_aging.sh/bat` script, and add the `--pydrive` flag when invoking `download_ffhq_aging.py`. This will open a browser authentication window. Log in to your account and allow access.
 * If you have no display (like when running from a remote compute server), edit the `get_ffhq_aging.sh/bat` script, and also add the `--cmd_auth` flag when invoking `download_ffhq_aging.py`. This will print a Google authentication link to the screen. Open the link in any browser, allow access, and paste the Google authentication token back to the command line.  
